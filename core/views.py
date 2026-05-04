@@ -22,14 +22,16 @@ def addTask(request):
     }
     return render(request, 'form.html', contexto)
 
-def updateTask(request):
+def updateTask(request, pk):
+
     dados = TaskModel.objects.get(pk=pk)
-    form = TaskForm(request.POST, instance=dados)
-    if form.is_valid():
-        form.save()
-        return redirect('home')
+    form = TaskForm(instance=dados)
+    if request.method == 'POST':
+        form = TaskForm(request.POST, instance=dados)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
     contexto = {
-        "form":form,
-        "dados":dados
+        "form":form
     }
     return render(request, 'form.html', contexto)
