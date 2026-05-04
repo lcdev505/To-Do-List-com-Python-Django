@@ -23,7 +23,6 @@ def addTask(request):
     return render(request, 'form.html', contexto)
 
 def updateTask(request, pk):
-
     dados = TaskModel.objects.get(pk=pk)
     form = TaskForm(instance=dados)
     if request.method == 'POST':
@@ -35,3 +34,8 @@ def updateTask(request, pk):
         "form":form
     }
     return render(request, 'form.html', contexto)
+
+def deleteTask(request, pk):
+    dados = TaskModel.objects.get(pk=pk)
+    dados.delete()
+    return redirect('home')

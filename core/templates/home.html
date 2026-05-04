@@ -25,7 +25,8 @@
             <td>{{d.descricao}}</td>
             <td>{{d.data_criacao}}</td>
             <td><input type="checkbox"></td>
-            <td><a href="{% url 'updateTask' d.id %}">Editar<input type="button"></a></td>
+            <td><button><a href="{% url 'updateTask' d.id %}">Editar</a></button></td>
+            <td><button><a href="{% url 'deleteTask' d.id %}">Excluir</a></button></td>
           </tr>
         {% endfor %}
       </tbody>
