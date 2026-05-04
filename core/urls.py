@@ -1,0 +1,8 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('home/', views.home, name="home"),
+    path('adicionar/', views.addTask, name="addTask"),
+    path('editar/<int:pk>/', views.updateTask, name="updateTask"),
+]

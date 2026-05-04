@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>To Do List com Django</title>
+  </head>
+  <body>
+    <h1>Olá {{titulo}}, seja bem vindo !</h1>
+    <br>
+    <h2>Aqui estão as suas tarefas:</h2>
+    <table>
+      <thead>
+        <tr>
+          <td>Nome</td>
+          <td>Descrição</td>
+          <td>Data de Criação</td>
+          <td>Concluído</td>
+        </tr>
+      </thead>
+      <tbody>
+        {% for d in dados %}
+          <tr>
+            <td>{{d.nome}}</td>
+            <td>{{d.descricao}}</td>
+            <td>{{d.data_criacao}}</td>
+            <td><input type="checkbox"></td>
+            <td><a href="{% url 'updateTask' d.id %}">Editar<input type="button"></a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
