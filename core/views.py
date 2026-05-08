@@ -39,3 +39,9 @@ def deleteTask(request, pk):
     dados = TaskModel.objects.get(pk=pk)
     dados.delete()
     return redirect('home')
+
+def checkboxTask(request, pk):
+    dados = TaskModel.objects.get(pk=pk)
+    dados.concluido = not dados.concluido
+    dados.save()
+    return redirect('home')

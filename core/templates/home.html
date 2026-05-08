@@ -1,35 +1,63 @@
+{% load static %}
 <!doctype html>
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>To Do List com Django</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
   </head>
   <body>
-    <h1>Olá {{titulo}}, seja bem vindo !</h1>
-    <br>
-    <h2>Aqui estão as suas tarefas:</h2>
-    <table>
-      <thead>
-        <tr>
-          <td>Nome</td>
-          <td>Descrição</td>
-          <td>Data de Criação</td>
-          <td>Concluído</td>
-        </tr>
-      </thead>
-      <tbody>
-        {% for d in dados %}
-          <tr>
-            <td>{{d.nome}}</td>
-            <td>{{d.descricao}}</td>
-            <td>{{d.data_criacao}}</td>
-            <td><input type="checkbox"></td>
-            <td><button><a href="{% url 'updateTask' d.id %}">Editar</a></button></td>
-            <td><button><a href="{% url 'deleteTask' d.id %}">Excluir</a></button></td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <div class="container">
+      <header>
+        <h1>Olá, <span>{{titulo}}</span> 👋</h1>
+        <p>Gerencie suas tarefas do dia</p>
+      </header>
+
+      <div class="top-bar">
+        <h2>Suas tarefas</h2>
+        <a href="{% url 'addTask' %}" class="btn-add">+ Nova tarefa</a>
+      </div>
+
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <td>Nome</td>
+              <td>Descrição</td>
+              <td>Data de Criação</td>
+              <td>Concluído</td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody>
+            {% for d in dados %}
+              <tr>
+                <td><strong>{{d.nome}}</strong></td>
+                <td>{{d.descricao}}</td>
+                <td>{{d.data_criacao|date:"d/m/Y H:i"}}</td>
+                <td>{% if d.concluido %}✅{% else %}⏳{% endif %}</td>
+                <td>
+                  <div class="td-actions">
+                    <a href="{% url 'checkboxTask' d.id %}" class="btn btn-check">✓</a>
+                    <a href="{% url 'updateTask' d.id %}" class="btn btn-edit">Editar</a>
+                    <a href="{% url 'deleteTask' d.id %}" class="btn btn-delete">Excluir</a>
+                  </div>
+                </td>
+              </tr>
+            {% empty %}
+              <tr>
+                <td colspan="5">
+                  <div class="empty">
+                    <strong>Nenhuma tarefa encontrada</strong>
+                    <p>Clique em "Nova tarefa" para começar!</p>
+                  </div>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
   </body>
 </html>
