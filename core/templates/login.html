@@ -1,0 +1,40 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  </head>
+  <body>
+    <div class="card">
+      <h1>Conecte-se a sua conta</h1>
+      <p class="subtitle">Faça login:</p>
+
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="username">
+            <label id="username-label"> Nome de usuário
+                <input type="text" name="username">
+            </label>
+        </div>
+        <div class="password">
+            <label id="password-label"> Senha
+                <input type="password" name="password">
+            </label>
+        </div>
+
+        <div class="actions">
+        <button type="submit" class="btn-submit">Iniciar sessão</button>
+        </div>
+
+        <a href="{% url 'register' %}" class="register-link">Não tem uma conta? Cadastre-se</a>
+
+        {% if error %}
+        <p class="error-alert">{{ error }}</p>
+        {% endif %}
+      </form>
+    </div>
+  </body>
+</html>

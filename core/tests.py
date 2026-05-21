@@ -27,8 +27,6 @@ class EditarTarefaTest(TestCase):
         self.assertRedirects(response, "/core/home/")
         self.assertEqual(task.nome, "editando teste")
 
-
-
 class DeletarTarefaTest(TestCase):
     def test_deletar_tarefa(self):
         c = Client()

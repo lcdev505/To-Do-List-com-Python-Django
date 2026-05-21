@@ -1,0 +1,48 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Página de cadastro</title>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+  </head>
+  <body>
+    <div class="card">
+      <h1>Faça seu cadastro:</h1>
+
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="username">
+            <label id="username-label"> Nome de usuário
+                <input type="text" name="username" required>
+            </label>
+        </div>
+        <div class="password">
+            <label id="password-label"> Email
+                <input type="email" name="email" required>
+            </label>
+        </div>
+        <div class="password">
+            <label id="password-label"> Senha
+                <input type="password" name="password" required>
+            </label>
+        </div>
+        <div class="password">
+            <label id="password-label">Confirme sua Senha
+                <input type="password" name="password_confirm" required>
+            </label>
+        </div>
+
+        <div class="actions">
+        <a href="{% url 'login' %}" class="btn-back">Voltar</a>
+        <button type="submit" class="btn-submit">Cadastrar</button>
+        </div>
+
+        {% if error %}
+        <p class="error-alert">{{ error }}</p>
+        {% endif %}
+      </form>
+    </div>
+  </body>
+</html>
