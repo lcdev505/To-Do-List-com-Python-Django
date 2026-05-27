@@ -63,6 +63,8 @@ header .user-badge {
   background: #fef2f2;
   color: #ef4444;
   border: 1px solid #fee2e2;
+  cursor: pointer;
+  font-family: inherit;
   padding: 10px 16px;
   border-radius: 8px;
   text-decoration: none;

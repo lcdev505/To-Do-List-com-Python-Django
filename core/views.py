@@ -4,6 +4,7 @@ from .models import TaskModel
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.db import IntegrityError
 
 # --------------------------- CRUD --------------------------- #
 
@@ -92,7 +93,7 @@ def register_view(request):
             try:
                 user = User.objects.create_user(username=username, email=email, password=password)
                 return redirect('login')
-            except:
+            except IntegrityError:
                 return render(request, 'register.html', {'error': 'Este nome de usuário já está em uso.'})
         else:
             return render(request, 'register.html', {'error': 'As senhas não coincidem'})
@@ -101,5 +102,7 @@ def register_view(request):
 
 @login_required(login_url="/core/accounts/login/")
 def logout_view(request):
-    logout(request)
-    return redirect('login')
+    if request.method == 'POST':
+        logout(request)
+        return redirect('login')
+    return redirect('home')
