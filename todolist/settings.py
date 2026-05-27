@@ -69,3 +69,4 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesPassword'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+CSRF_TRUSTED_ORIGINS = ['https://to-do-list-com-python-django-production.up.railway.app']
