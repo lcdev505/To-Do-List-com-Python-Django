@@ -102,3 +102,24 @@
       }
 
       .btn-cancel:hover { background: #e5e7eb; }
+
+/* Responsividade */
+@media (max-width: 480px) {
+  body {
+    padding: 15px;
+  }
+
+  .card {
+    padding: 24px 20px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  input[type="text"],
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}

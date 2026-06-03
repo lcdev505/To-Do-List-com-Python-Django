@@ -183,3 +183,53 @@ tbody td {
 }
 
 .empty p { margin-top: 8px; font-size: 0.9rem; }
+
+/* Responsividade para a Home */
+@media (max-width: 640px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  header {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  /* Transformando a tabela em cards */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none; /* Esconde o cabeçalho da tabela no mobile */
+  }
+
+  tbody tr {
+    margin-bottom: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 12px;
+  }
+
+  tbody td {
+    padding: 8px 0;
+    text-align: left;
+    border: none;
+  }
+
+  .td-actions {
+    justify-content: flex-start;
+    border-top: 1px solid #f3f4f6;
+    padding-top: 12px;
+    margin-top: 4px;
+  }
+}

@@ -120,3 +120,24 @@ input[type="password"]:focus {
   text-align: center;
   font-weight: 500;
 }
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 480px) {
+  body {
+    padding: 15px;
+  }
+
+  .card {
+    padding: 24px 20px;
+    border-radius: 12px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    font-size: 16px; /* Melhora a legibilidade e evita zoom indesejado no mobile */
+  }
+}
