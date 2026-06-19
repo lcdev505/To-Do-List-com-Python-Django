@@ -1,0 +1,15 @@
+{
+  "name": "todolist-django",
+  "version": "1.0.0",
+  "description": "Aplicação web completa de gerenciamento de tarefas desenvolvida com Python e Django, com autenticação de usuários, containerização com Docker e deploy em produção no Railway.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^15.17.0"
+  }
+}
