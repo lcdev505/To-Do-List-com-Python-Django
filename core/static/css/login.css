@@ -37,7 +37,6 @@ h1 {
   text-align: center;
 }
 
-/* Campos de entrada genéricos para o container */
 .username, .password {
   margin-bottom: 20px;
 }
@@ -91,7 +90,6 @@ input[type="password"]:focus {
   background: #4338ca; 
 }
 
-/* Link para a página de registro */
 .register-link {
   display: block;
   text-align: center;
@@ -108,7 +106,6 @@ input[type="password"]:focus {
   text-decoration: underline;
 }
 
-/* Alerta de erro estilizado */
 .error-alert {
   background-color: #fef2f2;
   border: 1px solid #fee2e2;
@@ -121,7 +118,6 @@ input[type="password"]:focus {
   font-weight: 500;
 }
 
-/* Responsividade para dispositivos móveis */
 @media (max-width: 480px) {
   body {
     padding: 15px;
@@ -138,6 +134,6 @@ input[type="password"]:focus {
 
   input[type="text"],
   input[type="password"] {
-    font-size: 16px; /* Melhora a legibilidade e evita zoom indesejado no mobile */
+    font-size: 16px;
   }
 }

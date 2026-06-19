@@ -16,7 +16,6 @@ body {
   margin: 0 auto;
 }
 
-/* Header transformado em Flexbox */
 header {
   display: flex;
   justify-content: space-between;
@@ -55,7 +54,6 @@ header .user-badge {
   vertical-align: middle;
 }
 
-/* Botão de Logout Estilizado */
 .btn-logout {
   display: flex;
   align-items: center;
@@ -184,7 +182,6 @@ tbody td {
 
 .empty p { margin-top: 8px; font-size: 0.9rem; }
 
-/* Responsividade para a Home */
 @media (max-width: 640px) {
   body {
     padding: 20px 12px;
@@ -204,13 +201,12 @@ tbody td {
     text-align: center;
   }
 
-  /* Transformando a tabela em cards */
   table, thead, tbody, th, td, tr {
     display: block;
   }
 
   thead {
-    display: none; /* Esconde o cabeçalho da tabela no mobile */
+    display: none;
   }
 
   tbody tr {

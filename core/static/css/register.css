@@ -119,7 +119,6 @@ input[type="password"]:focus {
   font-weight: 500;
 }
 
-/* Responsividade */
 @media (max-width: 480px) {
   body {
     padding: 15px;

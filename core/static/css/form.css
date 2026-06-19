@@ -103,7 +103,6 @@
 
       .btn-cancel:hover { background: #e5e7eb; }
 
-/* Responsividade */
 @media (max-width: 480px) {
   body {
     padding: 15px;
