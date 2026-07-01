@@ -1,5 +1,7 @@
 # 📝 To-Do List com Django
 
+![E2E Tests](https://github.com/lcdev505/To-Do-List-com-Python-Django/actions/workflows/cypress.yml/badge.svg)
+
 Aplicação web completa de gerenciamento de tarefas desenvolvida com Python e Django, com autenticação de usuários, containerização com Docker e deploy em produção no Railway.
 
 🔗 **[Demo ao vivo](https://to-do-list-com-python-django-production.up.railway.app/core/home/)**
@@ -13,6 +15,7 @@ Aplicação web completa de gerenciamento de tarefas desenvolvida com Python e D
 - **Autenticação de usuários** — cadastro, login e logout
 - **Isolamento de dados** — cada usuário visualiza apenas suas próprias tarefas
 - **Testes de integração** — cobertura completa do CRUD com Django TestCase
+- **Testes E2E automatizados** — suíte Cypress cobrindo login, cadastro e CRUD
 
 ---
 
@@ -27,6 +30,8 @@ Aplicação web completa de gerenciamento de tarefas desenvolvida com Python e D
 | Servidor de Produção | Gunicorn |
 | Arquivos Estáticos | WhiteNoise |
 | Deploy | Railway |
+| Testes E2E | Cypress |
+| CI | GitHub Actions |
 
 ---
 
@@ -47,6 +52,11 @@ templates/
 ├── form.html        # Formulário de criação/edição
 ├── login.html       # Página de login
 └── register.html    # Página de cadastro
+cypress/
+└── e2e/
+    ├── login.cy.js      # Testes de autenticação
+    ├── register.cy.js   # Testes de cadastro
+    └── tasks.cy.js      # Testes de CRUD de tarefas
 ```
 
 ---
@@ -90,18 +100,38 @@ docker compose up --build
 
 ## 🧪 Testes
 
-Para rodar os testes de integração:
+### Testes de integração (Django TestCase)
 
 ```bash
 docker compose exec web python manage.py test
 ```
 
-Os testes cobrem todas as operações do CRUD:
+Cobrem todas as operações do CRUD:
 
 - `criarTarefaTest` — verifica criação e persistência no banco
 - `ListarTarefaTest` — verifica listagem no contexto do template
 - `EditarTarefaTest` — verifica atualização de dados
 - `DeletarTarefaTest` — verifica remoção do registro
+
+### Testes E2E (Cypress)
+
+A suíte E2E testa os fluxos completos da aplicação pelo browser, simulando o comportamento real do usuário.
+
+**Executar localmente:**
+
+```bash
+npx cypress open
+```
+
+**Specs disponíveis:**
+
+| Arquivo | Casos de teste |
+|---|---|
+| `login.cy.js` | Login válido, senha incorreta, usuário inexistente, campos vazios |
+| `register.cy.js` | Cadastro válido, senhas diferentes, usuário duplicado, campos vazios |
+| `tasks.cy.js` | Criar tarefa, criar com campos vazios, editar tarefa, excluir tarefa |
+
+Os testes E2E rodam automaticamente a cada push via **GitHub Actions**, garantindo que nenhuma alteração quebre os fluxos principais da aplicação.
 
 ---
 
